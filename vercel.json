@@ -5,7 +5,7 @@
     { "src": "/api/user-places/**", "use": "@vercel/node" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/" },
+    { "src": "/(.*)", "dest": "/index.js" },
     { "src": "/api/places/(.*)", "dest": "/api/places.js" },
     { "src": "/api/user-places/(.*)", "dest": "/api/user-places.js" },
     { "src": "/images/(.*)", "dest": "/public/images/$1" }
