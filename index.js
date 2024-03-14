@@ -27,6 +27,9 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 // Define routes
+app.get("/",(res,req)=>{
+  res.send("hello world");
+})
 app.use('/api/places', placesHandler);
 app.use('/api/user-places', userPlacesHandler);
 
