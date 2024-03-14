@@ -2,8 +2,8 @@
   "version": 2,
   "routes": [
     { "handle": "filesystem" },
-    { "handle": "vercel", "src": "/api/places", "methods": ["GET"] },
-    { "handle": "vercel", "src": "/api/user-places", "methods": ["GET", "PUT"] },
+    {  "src": "/api/places", "methods": ["GET"] },
+    {  "src": "/api/user-places", "methods": ["GET", "PUT"] },
     { "src": "/images/(.*)", "dest": "/public/images/$1" } 
   ],
   "builds": [
