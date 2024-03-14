@@ -1,7 +1,6 @@
 {
   "version": 2,
   "routes": [
-    { "handle": "filesystem" },
     {  "src": "/api/places", "methods": ["GET"] },
     {  "src": "/api/user-places", "methods": ["GET", "PUT"] },
     { "src": "/images/(.*)", "dest": "/public/images/$1" } 
