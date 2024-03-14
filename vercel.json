@@ -1,16 +1,13 @@
 {
-    "version": 2,
-    "builds":[{"src":"./index.js*", "use":"@vercel/node"}],
-    "routes": [
-      { "handle": "filesystem" },
-      { "src": "/(.*)", "dest": "/" },
-      { "src": "/places", "dest": "/index.js" },
-      { "src": "/user-places", "methods": ["GET", "PUT"], "dest": "/index.js" },
-      { "src": "^/$", "dest": "/index.js" }
-    ],
-    "rewrites": [{ "source": "/images/(.*)", "destination": "/images/$1" }],
-    "functions": { "*.js": { "runtime": "nodejs12" } }
-  }
-
-
-
+  "version": 2,
+  "routes": [
+    { "handle": "filesystem" },
+    { "handle": "vercel", "src": "/api/places", "methods": ["GET"] },
+    { "handle": "vercel", "src": "/api/user-places", "methods": ["GET", "PUT"] },
+    { "src": "/images/(.*)", "dest": "/public/images/$1" } 
+  ],
+  "builds": [
+    { "src": "api/places.js", "use": "@vercel/node" },
+    { "src": "api/user-places.js", "use": "@vercel/node" }
+  ]
+}
