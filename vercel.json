@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "routes": [
-    {  "src": "/api/places", "methods": ["GET"] },
-    {  "src": "/api/user-places", "methods": ["GET", "PUT"] },
-    { "src": "/images/(.*)", "dest": "/public/images/$1" } 
-  ],
   "builds": [
-    { "src": "api/places.js", "use": "@vercel/node" },
-    { "src": "api/user-places.js", "use": "@vercel/node" }
+    { "src": "/api/places/**", "use": "@vercel/node" },
+    { "src": "/api/user-places/**", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/api/places/(.*)", "dest": "/api/places.js" },
+    { "src": "/api/user-places/(.*)", "dest": "/api/user-places.js" },
+    { "src": "/images/(.*)", "dest": "/public/images/$1" },
+    { "src": "/(.*)", "dest": "/" }
   ]
 }
