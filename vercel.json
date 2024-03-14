@@ -1,6 +1,7 @@
 {
   "version": 2,
   "builds": [
+    { "src": "package.json", "use": "@vercel/node" },
     { "src": "/api/places/**", "use": "@vercel/node" },
     { "src": "/api/user-places/**", "use": "@vercel/node" }
   ],
@@ -9,5 +10,9 @@
     { "src": "/api/user-places/(.*)", "dest": "/api/user-places.js" },
     { "src": "/images/(.*)", "dest": "/public/images/$1" },
     { "src": "/(.*)", "dest": "/" }
-  ]
+  ],
+  "build": {
+    "src": "build-script.sh",
+    "use": "@vercel/build-utils"
+  }
 }
